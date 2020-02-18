@@ -1,0 +1,137 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>spring0218</groupId>
+	<artifactId>spring0218</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<!-- 이 코드를 pom.xml 파일에 붙여 넣습니다. -->
+	<!-- 자주 사용하는 버전들의 이름을 변수로 등록해 두는 것이 properties 입니다. -->
+	<properties>
+		<!-- 자바 버전 -->
+		<java.version>1.6</java.version>
+		<!-- 소스코드와 출려되는 결과의 인코딩 설정 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<!-- Spring 버전 3~5 RestController 가 4버전 에서 추가 -->
+		<spring-framework.version>5.0.7.RELEASE</spring-framework.version>
+
+		<!-- Hibernate / JPA : 하이버네이트 -->
+		<hibernate.version>4.2.1.Final</hibernate.version>
+
+		<!-- 로그 라이브러리 버전 -->
+		<logback.version>1.0.13</logback.version>
+		<slf4j.version>1.7.5</slf4j.version>
+
+		<!-- Junit 버전을 4.12 이상을 사용하는 것을 권장 -->
+		<junit.version>4.12</junit.version>
+	</properties>
+
+
+	<!-- 중앙 저장소 이외에서 다운로드 받아야할 때 설정 : 다운로드 받는 서버를 설정 -->
+	<repositories>
+	<repository>
+		<id>oracle</id>
+		<name>ORACLE JDBC Repository</name>
+		<url>http://maven.jahia.org/maven2</url> 
+		</repository>
+	</repositories>
+
+	<!-- 실제 사용할 라이브러리를 설정 -->
+	<dependencies>
+
+	<!-- MyBatis와 SpringMyBatis 의존성 설정 -->
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis</artifactId>
+		<version>3.4.6</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis-spring</artifactId>
+		<version>1.3.2</version>
+	</dependency>
+	
+
+	<!-- 오라클 의존성 -->
+	<dependency>
+		<groupId>com.oracle</groupId>
+		<artifactId>ojdbc7</artifactId>
+		<version>12.1.0.2</version>
+	</dependency>
+	
+		<!-- Spring에서 데이터베이스 사용할 때 사용할 라이브러리 의존성 -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-jdbc</artifactId>
+		<version>${spring-framework.version}</version>
+	</dependency>
+	
+		<!-- lombok의 의존성 설정 -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.8</version>
+		</dependency>
+	
+	
+		<!-- Spring 기본 라이브러리 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+
+		<!-- Spring 트렌젝션 처리 라이브러리 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+
+
+		<!-- 로그 라이브러리 -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+
+		<!-- 이 라이브러리들은 Test 할 때만 존재하고 배포할 때는 자동으로 없어집니다. -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring-framework.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+</project>
